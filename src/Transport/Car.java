@@ -2,21 +2,18 @@ package Transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private final String barnd;//производитель не изменяемое
-    private final   String model;//модель не изменяемое
-    private final   int year;//год производства не изменяемое
-    private final   String country;//страна не изменяемое
+public class Car extends Transport {
     private final int numOfSeats;//количество мест не изменяемое
     private final String bodyType; //тип кузова не изменяемое
     private  double engineVolume;//кол-во лошединых сил
-    private  String color; // цвет кузова
     private String transmission;// коробка передач
     private String regNumber;// регистрационный номер
     private boolean winTires; // резина
 
     private final Key key;
     private final Insurance insurance;
+
+    private String engine;
 
 
   public Car(String barnd,
@@ -31,15 +28,18 @@ public class Car {
              int numOfSeats,
              boolean winTires,
              Key key,
-             Insurance insurance){
-        this.barnd = defaultOrValue(barnd, "Информация не указана");
-        this.model = defaultOrValue(model,"Информация не указана");
-        this.color= color;
-        this.country = defaultOrValue(country,"Информация не указана");
+             Insurance insurance,
+             int maxSpeed,
+             String engine
+  )
+  {
+      super(barnd,model,year,country,color,maxSpeed);
+
        this.bodyType = defaultOrValue(bodyType,"Информация не указана");
        this.transmission = defaultOrValue(transmission,"Информация не указана");
         this.key = key;
        this.insurance = insurance;
+       this.engine = defaultOrValue(engine,"Бензиновый");
         setWinTires(winTires);
         setRegNumber(regNumber);
 
@@ -53,11 +53,7 @@ public class Car {
         }else {
             this.engineVolume = engineVolume;
         }
-        if (year <=0){
-            this.year = 2000;
-        }else {
-            this.year = year;
-        }
+
 
     }
 
@@ -65,6 +61,10 @@ public class Car {
       int currentMonth = LocalDate.now().getMonthValue();
       this.winTires = currentMonth <= 4 || currentMonth >=11;
     }
+
+    public String getEngine() {
+      return engine;
+     }
 
     public boolean isRegNumberValid(){
       if (this.regNumber.length() != 9){
@@ -90,29 +90,12 @@ public class Car {
       return allowedSymbols.contains("" + symbol);
     }
 
-    public String getBarnd() {
-        return barnd;
-    }
-
-    public String getModel() {
-        return model;
-    }
 
     public double getEngineVolume() {
         return engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
 
     public int getNumOfSeats() {
         return numOfSeats;
@@ -123,9 +106,6 @@ public class Car {
     }
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
-    }
-    public void setColor(String color) {
-        this.color = color;
     }
     public String getTransmission() {
         return transmission;
@@ -142,6 +122,11 @@ public class Car {
 
     public void setWinTires(boolean winTires) {
         this.winTires = winTires;
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("можно заправлять на заправке бензином или дизелем, или на электропарковке, если это электрокар");
     }
 
     public String defaultOrValue(String value, String defaultValue){
@@ -167,20 +152,20 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "barnd='" + barnd + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
+                "barnd='" + getBrend() + '\'' +
+                ", model='" + getModel() + '\'' +
+                ", year=" + getYear() +
+                ", country='" + getCountry() + '\'' +
                 ", numOfSeats=" + numOfSeats +
                 ", bodyType='" + bodyType + '\'' +
                 ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
+                ", color='" + getColor() + '\'' +
                 ", transmission='" + transmission + '\'' +
                 ", regNumber='" + regNumber + '\'' +
                 ", winTires=" + winTires +
                 ", key=" + key +
                 ", insurance=" + insurance +
-                '}';
+                '}' +" max speed = " +  getMaxSpeed();
     }
 
     public static class Key {

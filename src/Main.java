@@ -1,4 +1,6 @@
+import Transport.Bus;
 import Transport.Car;
+import Transport.Train;
 
 import java.time.LocalDate;
 
@@ -40,7 +42,9 @@ public class Main {
                 5,
                 true,
                 new Car.Key(true,true),
-                new Car.Insurance(LocalDate.now().plusMonths(3),1000.0f,"112358132"));
+                new Car.Insurance(LocalDate.now().plusMonths(3),1000.0f,"112358132"),
+                190,"Бензиновый");
+        granta.refill();
 
         if (!granta.getInsurance().isInsuranceValid()){
             System.out.println("Страховка просрочена");
@@ -63,6 +67,26 @@ public class Main {
       //  System.out.println(kia);
      //   System.out.println(hundai);
 
+    Train lastochka = new Train("Ласточка","B-901",2011,"России",
+            " ",301,3500,3 ,  "Белоруский вокзал","Минск-Пассажирский",
+            11);
+    System.out.println(lastochka);
+
+    Train leningrad = new Train("Ленинград",
+            " D-125",
+            2019, "России", " ", 270, 1700, 2,"Ленинградского вокзала" ,
+            "Ленинград-Пассажирский", 8 );
+        System.out.println(leningrad);
+
+        Bus one = new Bus("Vaz","lada",1999,"Russia","black",120);
+        System.out.println(one);
+        Bus two = new Bus("Lada", "2103",2000,"russia","white",90);
+        Bus three = new Bus("", "", 2000,"russia", "black", 30);
+
+
+
 
     }
+
+
 }
