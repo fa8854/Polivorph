@@ -33,5 +33,9 @@ public class Animals1 {
 
         Sokol sokol = new Sokol("Sokol",1,"fly","fly");
         System.out.println(sokol);
+
+        Albatros albatros = new Albatros("Альбатрос",2,"Fly","fly");
+        Albatros albatros1 = new Albatros("Альбатрос",2,"Fly","fly");
+        System.out.println(albatros.equals(albatros1));
     }
 }
