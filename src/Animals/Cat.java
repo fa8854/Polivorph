@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.Arrays;
 
-public class Cat extends Pet {
+public final class Cat extends Pet {
     private static int count;
     public static int getCount(){
         return count;
