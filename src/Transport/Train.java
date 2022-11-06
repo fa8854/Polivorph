@@ -2,7 +2,9 @@ package Transport;
 
 import java.time.LocalTime;
 
-public class Train extends Transport {
+//public abstract class Train extends Transport {
+//
+/*
     private double priceOfTheTrip; //Цена поездки
     private int timeOfTheTrip; //Время поездки
     private String nameDepartureStation; //Название станции отбытия
@@ -106,6 +108,6 @@ public class Train extends Transport {
                 ", nameDepartureStation= '" + nameDepartureStation + '\'' +
                 ", nameFinalStation= '" + nameFinalStation + '\'' +
                 ", numberOfWagon= " + numberOfWagon +
-                '}';
-    }
-}
+                '}';*/
+//    }
+

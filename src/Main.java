@@ -1,6 +1,7 @@
 import Transport.Bus;
 import Transport.Car;
-import Transport.Train;
+import Transport.Track;
+//import Transport.Train;
 
 import java.time.LocalDate;
 
@@ -30,7 +31,7 @@ public class Main {
         System.out.println(gipsofila);
         System.out.println();
         */
-        Car granta = new Car("Lada" ,
+       /* Car granta = new Car("Lada" ,
                 " Granta",
                 "Желтого",
                 " России",
@@ -87,6 +88,24 @@ public class Main {
 
 
     }
+*/
+
+ Car car1= new Car("Vaz","2103",1.6);
+        Car car2= new Car("Vaz","2110",1.5);
+        Car car3= new Car("Vaz","2114",1.7);
+        Car car4= new Car("Vaz","2106",1.6);
+
+        Track track1 = new Track("Kamaz","Elefant",3.7);
+        Track track2 = new Track("Kamaz","Giraf",2.7);
+        Track track3 = new Track("Kamaz","Gigant",4.7);
+        Track track4 = new Track("Kamaz","Marko",5.7);
+
+        Bus bus1= new Bus("Автобус","Praagon",2.4);
+        Bus bus2= new Bus("Автобус","Praaeon",2.4);
+        Bus bus3= new Bus("Автобус","Praacon",2.4);
+        Bus bus4= new Bus("Автобус","Praqon",2.4);
 
 
+
+    }
 }

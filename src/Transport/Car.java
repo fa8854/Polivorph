@@ -3,6 +3,9 @@ package Transport;
 import java.time.LocalDate;
 
 public class Car extends Transport {
+    public Car(String brend, String model, double engineVolume) {
+        super(brend, model, engineVolume);
+    }/*
     private final int numOfSeats;//количество мест не изменяемое
     private final String bodyType; //тип кузова не изменяемое
     private  double engineVolume;//кол-во лошединых сил
@@ -154,18 +157,18 @@ public class Car extends Transport {
         return "Car{" +
                 "barnd='" + getBrend() + '\'' +
                 ", model='" + getModel() + '\'' +
-                ", year=" + getYear() +
-                ", country='" + getCountry() + '\'' +
+             //   ", year=" + getYear() +
+             //   ", country='" + getCountry() + '\'' +
                 ", numOfSeats=" + numOfSeats +
                 ", bodyType='" + bodyType + '\'' +
                 ", engineVolume=" + engineVolume +
-                ", color='" + getColor() + '\'' +
+             //   ", color='" + getColor() + '\'' +
                 ", transmission='" + transmission + '\'' +
                 ", regNumber='" + regNumber + '\'' +
                 ", winTires=" + winTires +
                 ", key=" + key +
-                ", insurance=" + insurance +
-                '}' +" max speed = " +  getMaxSpeed();
+                ", insurance=" + insurance ;
+           //     '}' +" max speed = " +  getMaxSpeed();
     }
 
     public static class Key {
@@ -202,5 +205,19 @@ public class Car extends Transport {
         public boolean isInsuranceValid(){
             return LocalDate.now().isBefore(this.validUntil);
         }
+    }*/
+
+
+
+    @Override
+    public void startMoved() {
+        System.out.println("Начать движение");
+
+    }
+
+    @Override
+    public void stopMoved() {
+        System.out.println("остановиться");
+
     }
 }

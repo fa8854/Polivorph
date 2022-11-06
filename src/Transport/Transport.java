@@ -3,11 +3,12 @@ package Transport;
 public abstract class Transport {
     private String brend;   //Марка
     private String model;   //Модель
-    private int year;       //год выпуска, не изменяемая
+  /*  private int year;       //год выпуска, не изменяемая
     private String country; //Страна, не изменяемая
-    private String color;   //Цвет кузова
+   private String color;   //Цвет кузова
     private int maxSpeed;   //максимальная скорость
-
+*/
+  private  double engineVolume;
     public String getBrend() {
         return brend;
     }
@@ -16,7 +17,7 @@ public abstract class Transport {
         return model;
     }
 
-    public int getYear() {
+   /* public int getYear() {
         return year;
     }
 
@@ -30,6 +31,10 @@ public abstract class Transport {
 
     public int getMaxSpeed() {
         return maxSpeed;
+    }*/
+
+    public double getEngineVolume(){
+        return engineVolume;
     }
 
     public void setBrend(String brend) {
@@ -47,7 +52,7 @@ public abstract class Transport {
             this.model = "Ваз";
         }
     }
-
+/*
     public void setColor(String color) {
         if (color != null && !color.isBlank() && !color.isEmpty()) {
             this.color = color;
@@ -63,20 +68,30 @@ public abstract class Transport {
            this.maxSpeed = maxSpeed;
        }
     }
-
-    public Transport(String brend, String model, int year, String country, String color, int maxSpeed) {
+*/
+    public Transport(String brend, String model, double engineVolume
+           // ,int year, String country, String color, int maxSpeed
+    ) {
         this.brend =  defaultOrValue(brend,"Ваз");
         this.model = defaultOrValue(model,"лада");
-        this.year = year;
+
+      /*  this.year = year;
         this.country = defaultOrValue(country,"Россия");
         this.color = defaultOrValue(color,"Белый");
         if (maxSpeed<=0){
             this.maxSpeed = 100;
         }else {
             this.maxSpeed = maxSpeed;
+        }*/
+
+        if (engineVolume <= 0){
+            this.engineVolume = 1.5;
+        }else {
+            this.engineVolume = engineVolume;
         }
+
     }
-    public abstract void refill();
+   // public abstract void refill();
 
     public String defaultOrValue(String value, String defaultValue){
         if (value == null || value.isBlank()){
@@ -85,4 +100,8 @@ public abstract class Transport {
             return value;
         }
     }
+
+    public abstract void startMoved();
+
+    public abstract void stopMoved();
 }
