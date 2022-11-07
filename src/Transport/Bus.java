@@ -1,6 +1,6 @@
 package Transport;
 
-public class Bus extends Transport{
+public class Bus extends Transport implements Competing{
     public Bus(String brend, String model, double engineVolume) {
         super(brend, model, engineVolume);
     }
@@ -9,11 +9,31 @@ public class Bus extends Transport{
 
     @Override
     public void startMoved() {
+        System.out.println("Начало движения");
 
     }
 
     @Override
     public void stopMoved() {
+        System.out.println("Конец движения");
+
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("Остановка на ПИТ-СТОП");
+
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Лучшее время");
+
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость");
 
     }
 

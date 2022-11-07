@@ -2,7 +2,7 @@ package Transport;
 
 import java.time.LocalDate;
 
-public class Car extends Transport {
+public class Car extends Transport implements Competing {
     public Car(String brend, String model, double engineVolume) {
         super(brend, model, engineVolume);
     }/*
@@ -218,6 +218,24 @@ public class Car extends Transport {
     @Override
     public void stopMoved() {
         System.out.println("остановиться");
+
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("Остановка на ПИТ-СТОП");
+    }
+
+    @Override
+    public void bestLapTime() {
+
+        System.out.println("Лучшее время круга");
+
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость");
 
     }
 }

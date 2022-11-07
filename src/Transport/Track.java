@@ -1,6 +1,6 @@
 package Transport;
 
-public class Track extends Transport{
+public class Track extends Transport implements Competing{
 
 
 
@@ -22,6 +22,23 @@ public class Track extends Transport{
     @Override
     public void stopMoved() {
         System.out.println("остановиться");
+
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("Остановка на ПИТ-СТОП");
+    }
+
+    @Override
+    public void bestLapTime() {
+        System.out.println("Лучшее время");
+
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость");
 
     }
 }

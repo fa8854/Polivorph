@@ -1,9 +1,9 @@
 import Transport.Bus;
 import Transport.Car;
 import Transport.Track;
-//import Transport.Train;
+import Transport.Transport;
+//import Transport.Car;
 
-import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
@@ -104,6 +104,13 @@ public class Main {
         Bus bus2= new Bus("Автобус","Praaeon",2.4);
         Bus bus3= new Bus("Автобус","Praacon",2.4);
         Bus bus4= new Bus("Автобус","Praqon",2.4);
+
+        DriverB<Car> nikolai = new DriverB<>("Vasiliev Nikolai Vasilievich", "Есть",3);
+        DriverC<Track> sergei = new DriverC<>("Иванов Иван Васильевич", "Есть",5);
+        DriverD<Bus> anton = new DriverD<>("Антонов Антон Владимирович","Есть",6);
+        anton.D(bus1);
+
+
 
 
 
