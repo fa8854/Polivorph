@@ -215,6 +215,7 @@ public class Car extends Transport implements Competing {
 
     }
 
+
     @Override
     public void stopMoved() {
         System.out.println("остановиться");

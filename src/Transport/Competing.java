@@ -7,4 +7,5 @@ public interface Competing {
    void startMoved();
    void stopMoved();
 
+
 }

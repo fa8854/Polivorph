@@ -8,6 +8,7 @@ public class DriverB <B extends Car> implements Competing {
     private String presenceDriverLicens;
     private int experience;
 
+
     public DriverB(String fio, String presenceDriverLicens, int experience) {
 
         if (fio != null && !fio.isEmpty() && !fio.isBlank()) {

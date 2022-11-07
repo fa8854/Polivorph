@@ -85,6 +85,7 @@ public class DriverD <D extends Bus> implements Competing {
 
     }
 
+
     public void D(D Car){
         System.out.println("У меня категория " + CAT_D);
     }
