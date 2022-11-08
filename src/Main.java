@@ -3,6 +3,9 @@ import Transport.Car;
 import Transport.Track;
 import Transport.Transport;
 //import Transport.Car;
+import Transport.TypeOfByde;
+import Transport.TypeOfTrack;
+import Transport.TypeOfBus;
 
 
 public class Main {
@@ -90,25 +93,34 @@ public class Main {
     }
 */
 
- Car car1= new Car("Vaz","2103",1.6);
-        Car car2= new Car("Vaz","2110",1.5);
-        Car car3= new Car("Vaz","2114",1.7);
-        Car car4= new Car("Vaz","2106",1.6);
+ Car car1= new Car("Vaz","2103",1.6, TypeOfByde.SEDAN);
+       Car car2= new Car("Vaz","2110",1.5,TypeOfByde.SEDAN);
+        Car car3= new Car("Vaz","2114",1.7,TypeOfByde.SEDAN);
+        Car car4= new Car("Vaz","2106",1.6,TypeOfByde.SEDAN);
 
-        Track track1 = new Track("Kamaz","Elefant",3.7);
-        Track track2 = new Track("Kamaz","Giraf",2.7);
-        Track track3 = new Track("Kamaz","Gigant",4.7);
-        Track track4 = new Track("Kamaz","Marko",5.7);
+        Track track1 = new Track("Kamaz","Elefant",3.7,TypeOfTrack.N2);
+        Track track2 = new Track("Kamaz","Giraf",2.7,TypeOfTrack.N1);
+        Track track3 = new Track("Kamaz","Gigant",4.7,TypeOfTrack.N1);
+        Track track4 = new Track("Kamaz","Marko",5.7, TypeOfTrack.N1);
 
-        Bus bus1= new Bus("Автобус","Praagon",2.4);
-        Bus bus2= new Bus("Автобус","Praaeon",2.4);
-        Bus bus3= new Bus("Автобус","Praacon",2.4);
-        Bus bus4= new Bus("Автобус","Praqon",2.4);
+        Bus bus1= new Bus("Автобус","Praagon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus2= new Bus("Автобус","Praaeon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus3= new Bus("Автобус","Praacon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus4= new Bus("Автобус","Praqon",2.4, TypeOfBus.EXTRA_SMALL);
 
-        DriverB<Car> nikolai = new DriverB<>("Vasiliev Nikolai Vasilievich", "Есть",3);
-        DriverC<Track> sergei = new DriverC<>("Иванов Иван Васильевич", "Есть",5);
-        DriverD<Bus> anton = new DriverD<>("Антонов Антон Владимирович","Есть",6);
-        anton.D(bus1);
+        DriverC driverC = new DriverC("Ivan",10,track1);
+        printInfo(driverC,track1);
+
+
+     }
+ private static void printInfo(Driver<?>driver,Transport transport ){
+  System.out.println(
+          "Водитель " + driver.getFio() +
+                  " управляет авто " +transport.getBrend() + transport.getModel());
+  transport.printType();
+
+
+
 
 
 

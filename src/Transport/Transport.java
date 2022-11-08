@@ -1,5 +1,6 @@
 package Transport;
 
+
 public abstract class Transport {
     private String brend;   //Марка
     private String model;   //Модель
@@ -13,25 +14,10 @@ public abstract class Transport {
         return brend;
     }
 
+
     public String getModel() {
         return model;
     }
-
-   /* public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }*/
 
     public double getEngineVolume(){
         return engineVolume;
@@ -52,6 +38,50 @@ public abstract class Transport {
             this.model = "Ваз";
         }
     }
+
+   /* public int getYear() {
+        return year;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }*/
+   public Transport(String brend, String model, double engineVolume
+                    // ,int year, String country, String color, int maxSpeed
+   ) {
+       this.brend =  defaultOrValue(brend,"Ваз");
+       this.model = defaultOrValue(model,"лада");
+       if (engineVolume <= 0){
+           this.engineVolume = 1.5;
+       }else {
+           this.engineVolume = engineVolume;
+       }
+      /*  this.year = year;
+        this.country = defaultOrValue(country,"Россия");
+        this.color = defaultOrValue(color,"Белый");
+        if (maxSpeed<=0){
+            this.maxSpeed = 100;
+        }else {
+            this.maxSpeed = maxSpeed;
+        }*/
+
+
+   }
+    public String defaultOrValue(String value, String defaultValue){
+        if (value == null || value.isBlank()){
+            return defaultValue;
+        }else {
+            return value;
+        }
+    }
 /*
     public void setColor(String color) {
         if (color != null && !color.isBlank() && !color.isEmpty()) {
@@ -69,39 +99,15 @@ public abstract class Transport {
        }
     }
 */
-    public Transport(String brend, String model, double engineVolume
-           // ,int year, String country, String color, int maxSpeed
-    ) {
-        this.brend =  defaultOrValue(brend,"Ваз");
-        this.model = defaultOrValue(model,"лада");
 
-      /*  this.year = year;
-        this.country = defaultOrValue(country,"Россия");
-        this.color = defaultOrValue(color,"Белый");
-        if (maxSpeed<=0){
-            this.maxSpeed = 100;
-        }else {
-            this.maxSpeed = maxSpeed;
-        }*/
+    public abstract void refill();
 
-        if (engineVolume <= 0){
-            this.engineVolume = 1.5;
-        }else {
-            this.engineVolume = engineVolume;
-        }
-
-    }
-   // public abstract void refill();
-
-    public String defaultOrValue(String value, String defaultValue){
-        if (value == null || value.isBlank()){
-            return defaultValue;
-        }else {
-            return value;
-        }
-    }
 
     public abstract void startMoved();
 
     public abstract void stopMoved();
+
+    public abstract void printType();
+
+
 }

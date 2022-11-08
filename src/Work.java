@@ -11,12 +11,14 @@ public class Work {
 
         murzik.talk();
 
+
         Dog sharik = new Dog("Шарик");
         sharik.talk();
         sharik.eat();
 
         Parrot kesha = new Parrot("Keha");
         kesha.talk();
+
 
 
     }

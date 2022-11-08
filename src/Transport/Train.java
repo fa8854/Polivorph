@@ -2,6 +2,8 @@ package Transport;
 
 import java.time.LocalTime;
 
+
+
 //public abstract class Train extends Transport {
 //
 /*
@@ -14,6 +16,7 @@ import java.time.LocalTime;
     public double getPriceOfTheTrip() {
         return priceOfTheTrip;
     }
+
 
     public int getTimeOfTheTrip() {
         return timeOfTheTrip;
