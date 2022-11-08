@@ -19,6 +19,7 @@ public enum TypeOfBus {
         return from;
     }
 
+
     public int getTo() {
         return to;
     }

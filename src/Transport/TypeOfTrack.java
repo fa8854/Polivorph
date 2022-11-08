@@ -18,6 +18,7 @@ public enum TypeOfTrack
 
     public Double getFrom() {
         return from;
+
     }
 
     public Double getTo() {

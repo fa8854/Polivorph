@@ -7,6 +7,7 @@ public enum TypeOfByde {
     UNIVERSAL,
     VNEDOR,
     CROSOVER,
+
     PICKUP,
     VAN,
     MINIVAN

@@ -265,5 +265,6 @@ public class Car extends Transport implements Competing {
             System.out.println(typeOfByde);
         }
 
+
     }
 }

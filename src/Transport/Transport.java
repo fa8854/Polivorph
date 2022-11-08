@@ -14,6 +14,7 @@ public abstract class Transport {
         return brend;
     }
 
+
     public String getModel() {
         return model;
     }

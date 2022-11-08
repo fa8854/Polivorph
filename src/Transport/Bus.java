@@ -2,7 +2,8 @@ package Transport;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Bus extends Transport implements Competing {
+public class
+Bus extends Transport implements Competing {
 
     public TypeOfBus typeOfBus;
 

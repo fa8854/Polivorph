@@ -45,6 +45,7 @@ public abstract class Driver <A extends Transport> {
 
     }
 
+
     public void bestLapTime() {
         System.out.println("Лучшее время");
 

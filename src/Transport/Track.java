@@ -64,7 +64,8 @@ public class Track extends Transport implements Competing {
                 ", объем двигателя: " + getEngineVolume() + " л");
     }
 
-    public void printType() {
+    public
+    void printType() {
         if (typeOfTrack == null) {
             System.out.println("Данных по автомобилю недостаточно");
         } else {
