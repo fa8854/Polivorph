@@ -1,17 +1,21 @@
 package Transport;
 
 import java.time.LocalDate;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing {
     public Car(String brend, String model, double engineVolume) {
         super(brend, model, engineVolume);
-    }/*
-    private final int numOfSeats;//количество мест не изменяемое
-    private final String bodyType; //тип кузова не изменяемое
-    private  double engineVolume;//кол-во лошединых сил
-    private String transmission;// коробка передач
-    private String regNumber;// регистрационный номер
-    private boolean winTires; // резина
+    }
+
+    @Override
+    public void refill() {
+
+    }
+
+    //   private final String bodyType; //тип кузова не изменяемое
+
+    /*
 
     private final Key key;
     private final Insurance insurance;
@@ -211,31 +215,38 @@ public class Car extends Transport implements Competing {
 
     @Override
     public void startMoved() {
-        System.out.println("Начать движение");
+        System.out.println("Начало движения" + this.getModel() + this.getBrend());
 
     }
 
+
     @Override
     public void stopMoved() {
-        System.out.println("остановиться");
+        System.out.println("Конец движения" + this.getModel() + this.getBrend());
 
     }
 
     @Override
     public void pitStop() {
-        System.out.println("Остановка на ПИТ-СТОП");
-    }
-
-    @Override
-    public void bestLapTime() {
-
-        System.out.println("Лучшее время круга");
+        System.out.println("Остановка на ПИТ-СТОП " +  this.getModel() + this.getBrend());
 
     }
 
     @Override
-    public void maxSpeed() {
-        System.out.println("Максимальная скорость");
+    public int bestLapTime() {
+        return ThreadLocalRandom.current().nextInt(1, 60);
+    }
 
+    @Override
+    public int maxSpeed() {
+        return ThreadLocalRandom.current().nextInt(1, 60);
+
+
+    }
+
+    public void printTruck () {
+        System.out.println("Автомобиль: " + getBrend() +
+                ", модель: " + getModel() +
+                ", объем двигателя: " + getEngineVolume() + " л");
     }
 }

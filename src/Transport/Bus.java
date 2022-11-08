@@ -1,39 +1,46 @@
 package Transport;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Bus extends Transport implements Competing{
     public Bus(String brend, String model, double engineVolume) {
         super(brend, model, engineVolume);
     }
 
+    @Override
+    public void refill() {
+
+    }
 
 
     @Override
     public void startMoved() {
-        System.out.println("Начало движения");
+        System.out.println("Начало движения" + this.getModel() + this.getBrend());
 
     }
 
+
     @Override
     public void stopMoved() {
-        System.out.println("Конец движения");
+        System.out.println("Конец движения" + this.getModel() + this.getBrend());
 
     }
 
     @Override
     public void pitStop() {
-        System.out.println("Остановка на ПИТ-СТОП");
+        System.out.println("Остановка на ПИТ-СТОП " +  this.getModel() + this.getBrend());
 
     }
 
     @Override
-    public void bestLapTime() {
-        System.out.println("Лучшее время");
-
-    }
+    public int bestLapTime() {
+        return ThreadLocalRandom.current().nextInt(1, 60);
+              }
 
     @Override
-    public void maxSpeed() {
-        System.out.println("Максимальная скорость");
+    public int maxSpeed() {
+                return ThreadLocalRandom.current().nextInt(1, 60);
+
 
     }
 
@@ -51,5 +58,11 @@ public class Bus extends Transport implements Competing{
         return "brend " + getBrend() + " model " + getModel() + " year " + getYear() + " country " +
                 getCountry() + " color " + getColor() + " max speed " + getMaxSpeed();
     }*/
+
+    public void printBus () {
+        System.out.println("Автобус: " + getBrend() +
+                ", модель: " + getModel() +
+                ", объем двигателя: " + getEngineVolume() + " л");
+    }
 
 }

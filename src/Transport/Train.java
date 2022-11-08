@@ -15,6 +15,7 @@ import java.time.LocalTime;
         return priceOfTheTrip;
     }
 
+
     public int getTimeOfTheTrip() {
         return timeOfTheTrip;
     }

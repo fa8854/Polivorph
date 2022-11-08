@@ -5,6 +5,7 @@ public class flower {
    private double cost;
     int lifeSpan;
 
+
     public flower(String name ,String flowerColor, String country, double cost, int lifeSpan ) {
         this.name = name;
         if (flowerColor !=null && !flowerColor.isBlank() && !flowerColor.isEmpty()){
