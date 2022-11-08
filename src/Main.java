@@ -105,11 +105,9 @@ public class Main {
         Bus bus3= new Bus("Автобус","Praacon",2.4);
         Bus bus4= new Bus("Автобус","Praqon",2.4);
 
-        DriverB<Car> nikolai = new DriverB<>("Vasiliev Nikolai Vasilievich", "Есть",3);
-        DriverC<Track> sergei = new DriverC<>("Иванов Иван Васильевич", "Есть",5);
-        DriverD<Bus> anton = new DriverD<>("Антонов Антон Владимирович","Есть",6);
-        anton.D(bus1);
-        
+        DriverC driverC = new DriverC("Ivan",10,track1);
+        System.out.println(driverC);
+
 
 
 
