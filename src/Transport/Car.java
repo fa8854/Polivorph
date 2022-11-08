@@ -4,8 +4,12 @@ import java.time.LocalDate;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Car extends Transport implements Competing {
-    public Car(String brend, String model, double engineVolume) {
+
+     private TypeOfByde typeOfByde;
+
+    public Car(String brend, String model, double engineVolume, TypeOfByde typeOfByde) {
         super(brend, model, engineVolume);
+        this.typeOfByde = typeOfByde;
     }
 
     @Override
@@ -13,7 +17,11 @@ public class Car extends Transport implements Competing {
 
     }
 
-    //   private final String bodyType; //тип кузова не изменяемое
+    public TypeOfByde getTypeOfByde() {
+        return typeOfByde;
+    }
+
+//   private final String bodyType; //тип кузова не изменяемое
 
     /*
 
@@ -248,5 +256,14 @@ public class Car extends Transport implements Competing {
         System.out.println("Автомобиль: " + getBrend() +
                 ", модель: " + getModel() +
                 ", объем двигателя: " + getEngineVolume() + " л");
+    }
+
+    public void printType(){
+        if (typeOfByde == null){
+            System.out.println("Данных по автомобилю недостаточно");
+        }else {
+            System.out.println(typeOfByde);
+        }
+
     }
 }

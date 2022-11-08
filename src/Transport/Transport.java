@@ -1,5 +1,6 @@
 package Transport;
 
+
 public abstract class Transport {
     private String brend;   //Марка
     private String model;   //Модель
@@ -104,4 +105,8 @@ public abstract class Transport {
     public abstract void startMoved();
 
     public abstract void stopMoved();
+
+    public abstract void printType();
+
+
 }

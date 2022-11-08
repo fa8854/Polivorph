@@ -6,6 +6,7 @@ public class Human {
 
 
 
+
     Human(int yearOfBrith, String name,String town, String jobTitle){
         if (yearOfBrith <=0){
             this.yearOfBrith = Math.abs(yearOfBrith);

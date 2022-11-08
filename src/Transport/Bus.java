@@ -2,9 +2,13 @@ package Transport;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Bus extends Transport implements Competing{
-    public Bus(String brend, String model, double engineVolume) {
+public class Bus extends Transport implements Competing {
+
+    public TypeOfBus typeOfBus;
+
+    public Bus(String brend, String model, double engineVolume, TypeOfBus typeOfBus) {
         super(brend, model, engineVolume);
+        this.typeOfBus = typeOfBus;
     }
 
     @Override
@@ -28,18 +32,18 @@ public class Bus extends Transport implements Competing{
 
     @Override
     public void pitStop() {
-        System.out.println("Остановка на ПИТ-СТОП " +  this.getModel() + this.getBrend());
+        System.out.println("Остановка на ПИТ-СТОП " + this.getModel() + this.getBrend());
 
     }
 
     @Override
     public int bestLapTime() {
         return ThreadLocalRandom.current().nextInt(1, 60);
-              }
+    }
 
     @Override
     public int maxSpeed() {
-                return ThreadLocalRandom.current().nextInt(1, 60);
+        return ThreadLocalRandom.current().nextInt(1, 60);
 
 
     }
@@ -59,10 +63,20 @@ public class Bus extends Transport implements Competing{
                 getCountry() + " color " + getColor() + " max speed " + getMaxSpeed();
     }*/
 
-    public void printBus () {
+    public void printBus() {
         System.out.println("Автобус: " + getBrend() +
                 ", модель: " + getModel() +
                 ", объем двигателя: " + getEngineVolume() + " л");
     }
 
-}
+    public void printType() {
+        if (typeOfBus == null) {
+            System.out.println("Данных по автомобилю недостаточно");
+        } else {
+
+            System.out.println(" Вместимость от " + typeOfBus.getFrom() + " до " + typeOfBus.getTo());
+        }
+    }
+
+    }
+
