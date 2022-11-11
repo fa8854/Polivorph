@@ -5,7 +5,16 @@ public class Bus extends Transport implements Competing{
         super(brend, model, engineVolume);
     }
 
+    @Override
+    public boolean diagnostic() {
+        System.out.println("Автобус " + getBrend() + " " + getModel() + " в диагностике не нуждается");
+        return true;
+    }
 
+    @Override
+    public void printType() {
+
+    }
 
     @Override
     public void startMoved() {
