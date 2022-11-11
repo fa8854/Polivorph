@@ -207,7 +207,15 @@ public class Car extends Transport implements Competing {
         }
     }*/
 
+    @Override
+    public boolean diagnostic() {
+        return Math.random() > 0.5;
+    }
 
+    @Override
+    public void printType() {
+
+    }
 
     @Override
     public void startMoved() {

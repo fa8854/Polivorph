@@ -9,9 +9,15 @@ public class Track extends Transport implements Competing{
 
     }
 
+    @Override
+    public boolean diagnostic() {
+        return Math.random() > 0.75;
+    }
 
+    @Override
+    public void printType() {
 
-
+    }
 
     @Override
     public void startMoved() {
@@ -41,4 +47,6 @@ public class Track extends Transport implements Competing{
         System.out.println("Максимальная скорость");
 
     }
+
+
 }
