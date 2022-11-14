@@ -267,4 +267,14 @@ public class Car extends Transport implements Competing {
 
 
     }
+
+    @Override
+    public boolean service() {
+        return false;
+    }
+
+    @Override
+    public void repair() {
+
+    }
 }

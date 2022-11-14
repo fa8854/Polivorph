@@ -74,4 +74,14 @@ public class Track extends Transport implements Competing {
             System.out.println(" Груз " + from + to);
         }
     }
+
+    @Override
+    public boolean service() {
+        return false;
+    }
+
+    @Override
+    public void repair() {
+
+    }
 }

@@ -1,4 +1,6 @@
-import Transport.Competing;
+package Driver;
+
+import Driver.Driver;
 import Transport.Car;
 
 public class DriverB extends Driver<Car> {

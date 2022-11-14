@@ -2,8 +2,7 @@ package Transport;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class
-Bus extends Transport implements Competing {
+public class Bus extends Transport implements Competing {
 
     public TypeOfBus typeOfBus;
 
@@ -79,5 +78,15 @@ Bus extends Transport implements Competing {
         }
     }
 
+    @Override
+    public boolean service() {
+        return false;
     }
+
+    @Override
+    public void repair() {
+
+    }
+
+}
 

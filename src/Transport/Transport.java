@@ -1,7 +1,16 @@
 package Transport;
 
 
+
+import Driver.Driver;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public abstract class Transport {
+
+
     private String brend;   //Марка
     private String model;   //Модель
   /*  private int year;       //год выпуска, не изменяемая
@@ -10,7 +19,14 @@ public abstract class Transport {
     private int maxSpeed;   //максимальная скорость
 */
   private  double engineVolume;
-    public String getBrend() {
+
+  private final List<Driver> drivers = new ArrayList<>();
+    private final List<Mehanic<?>> mehanics = new ArrayList<>();
+
+    private final List<Sponsor> sponsors = new ArrayList<>();
+
+
+  public String getBrend() {
         return brend;
     }
 
@@ -54,9 +70,16 @@ public abstract class Transport {
     public int getMaxSpeed() {
         return maxSpeed;
     }*/
-   public Transport(String brend, String model, double engineVolume
-                    // ,int year, String country, String color, int maxSpeed
+   public Transport(String brend,
+                    String model,
+                    double engineVolume
+
+                    /* ,int year,
+                    String country,
+                    String color,
+                    int maxSpeed*/
    ) {
+
        this.brend =  defaultOrValue(brend,"Ваз");
        this.model = defaultOrValue(model,"лада");
        if (engineVolume <= 0){
@@ -82,6 +105,21 @@ public abstract class Transport {
             return value;
         }
     }
+
+    public void addDriver(Driver drivers){
+       this.drivers.addAll(Arrays.asList(drivers));
+    }
+
+    public void addMehanic(Mehanic<?>... mehanics){
+       this.mehanics.addAll(Arrays.asList(mehanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors){
+       this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+
+
 /*
     public void setColor(String color) {
         if (color != null && !color.isBlank() && !color.isEmpty()) {
@@ -109,5 +147,19 @@ public abstract class Transport {
 
     public abstract void printType();
 
+    public abstract boolean service();
 
+    public abstract void repair();
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public List<Mehanic<?>> getMehanics() {
+        return mehanics;
+    }
+
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
 }
