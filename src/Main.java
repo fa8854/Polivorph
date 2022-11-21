@@ -3,9 +3,27 @@ import Transport.Car;
 import Transport.Track;
 import Transport.Transport;
 //import Transport.Car;
+import Transport.TypeOfByde;
+import Transport.TypeOfTrack;
+import Transport.TypeOfBus;
+import Transport.Mehanic;
+import Transport.Sponsor;
+import Driver.Driver;
+import Driver.DriverB;
+import Driver.DriverC;
+import Driver.DriverD;
+import Transport.ServiceStation;
+
+
+import java.util.List;
 
 
 public class Main {
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     public static void main(String[] args) {
       /*
         Human Maksim = new Human(1998, "", "Минск","бренд-менеджером");
@@ -89,30 +107,110 @@ public class Main {
 
     }
 */
+     Sponsor mishlen = new Sponsor("Meshlen",20000);
+     Sponsor minvoda = new Sponsor("Minvod",2002200);
+     Sponsor domru = new Sponsor("domru",500000);
+     Sponsor transTrack = new Sponsor("TransTrack",899001324);
 
- Car car1= new Car("Vaz","2103",1.6);
-        Car car2= new Car("Vaz","2110",1.5);
-        Car car3= new Car("Vaz","2114",1.7);
-        Car car4= new Car("Vaz","2106",1.6);
 
-        Track track1 = new Track("Kamaz","Elefant",3.7);
-        Track track2 = new Track("Kamaz","Giraf",2.7);
-        Track track3 = new Track("Kamaz","Gigant",4.7);
-        Track track4 = new Track("Kamaz","Marko",5.7);
+     Mehanic petrovich = new Mehanic<Car>("Sergei", "Petrovich", "SP");
+     Mehanic lenia = new Mehanic<Track>("Aleksei","Davidov","Track");
+     Mehanic sania = new Mehanic<Bus>("Sania", "Lapouhov","turok");
 
-        Bus bus1= new Bus("Автобус","Praagon",2.4);
-        Bus bus2= new Bus("Автобус","Praaeon",2.4);
-        Bus bus3= new Bus("Автобус","Praacon",2.4);
-        Bus bus4= new Bus("Автобус","Praqon",2.4);
 
-        DriverB<Car> nikolai = new DriverB<>("Vasiliev Nikolai Vasilievich", "Есть",3);
-        DriverC<Track> sergei = new DriverC<>("Иванов Иван Васильевич", "Есть",5);
-        DriverD<Bus> anton = new DriverD<>("Антонов Антон Владимирович","Есть",6);
-        anton.D(bus1);
+
+
+        Car car1= new Car("Vaz","2103",1.6, TypeOfByde.SEDAN);
+        car1.addDriver(new DriverB("Ivan","23",23, car1));
+        car1.addMehanic(petrovich);
+        car1.addSponsor(mishlen, minvoda);
+        Car car2= new Car("Vaz","2110",1.5,TypeOfByde.SEDAN);
+        Car car3= new Car("Vaz","2114",1.7,TypeOfByde.SEDAN);
+        Car car4= new Car("Vaz","2106",1.6,TypeOfByde.SEDAN);
+
+        Track track1 = new Track("Kamaz","Elefant",3.7,TypeOfTrack.N2);
+        Driver nikolai = new DriverC("Nikolae Nikolai",4,track1);
+        track1.addDriver(nikolai);
+        track1.addMehanic(lenia);
+        track1.addSponsor(domru);
+
+
+
+        Track track2 = new Track("Kamaz","Giraf",2.7,TypeOfTrack.N1);
+        Track track3 = new Track("Kamaz","Gigant",4.7,TypeOfTrack.N1);
+        Track track4 = new Track("Kamaz","Marko",5.7, TypeOfTrack.N1);
+
+        Bus bus1= new Bus("Автобус","Praagon",2.4, TypeOfBus.EXTRA_SMALL);
+        Driver arash = (Driver) new DriverD("Arash Arashovic","D",30,bus1);
+        bus1.addDriver(arash);
+        bus1.addMehanic(sania);
+        bus1.addSponsor(domru,mishlen);
+
+        Bus bus2= new Bus("Автобус","Praaeon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus3= new Bus("Автобус","Praaeon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus4= new Bus("Автобус","Praqon",2.4, TypeOfBus.EXTRA_SMALL);
+
+
+        List<Transport> transports = List.of(car1,track1,bus1);
+
+
+
+
+        printInfo(car1);
+        ServiceStation serviceStation = new ServiceStation();
+        serviceStation.addCar(car1);
+        serviceStation.service();
+
+
+
+
+
+
+
+     }
+
+     private  static  void printInfo(Transport transport){
+         System.out.println(" information avto "+ transport.getBrend() + " " + transport.getModel());
+         System.out.println("Driver ");
+         for (Driver driver : transport.getDrivers()){
+             System.out.println(driver.getFio());
+         }
+         System.out.println("Sponsors");
+         for(Sponsor sponsor : transport.getSponsors()){
+             System.out.println(sponsor.getName());
+         }
+         System.out.println("mehanics");
+         for (Mehanic mehanic: transport.getMehanics()){
+             System.out.println(mehanic.getName());
+         }
+
+
+     }
+
+     private static void service(Transport... transports){
+        for(Transport transport: transports){
+            serviceTransport(transport);
+        }
+     }
+
+     private static void serviceTransport(Transport transport){
+        try {
+            if (!transport.service()){
+                throw new RuntimeException("Автомобиль " + transport.getBrend()+ " " + transport.getModel()
+                + " не прошёл диагностику");
+            }
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
+        }
+
+
+     }
+
+
+
 
 
 
 
 
     }
-}

@@ -1,6 +1,14 @@
 package Transport;
 
+
+
+import Driver.Driver;
+
+import java.util.*;
+
 public abstract class Transport {
+
+
     private String brend;   //Марка
     private String model;   //Модель
   /*  private int year;       //год выпуска, не изменяемая
@@ -9,29 +17,21 @@ public abstract class Transport {
     private int maxSpeed;   //максимальная скорость
 */
   private  double engineVolume;
-    public String getBrend() {
+
+  private List <Driver> drivers = new ArrayList<>();
+    private final Set<Mehanic<?>> mehanics = new HashSet<>();
+
+    private final Set<Sponsor> sponsors = new HashSet<>();
+
+
+  public String getBrend() {
         return brend;
     }
+
 
     public String getModel() {
         return model;
     }
-
-   /* public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }*/
 
     public double getEngineVolume(){
         return engineVolume;
@@ -52,6 +52,72 @@ public abstract class Transport {
             this.model = "Ваз";
         }
     }
+
+   /* public int getYear() {
+        return year;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }*/
+   public Transport(String brend,
+                    String model,
+                    double engineVolume
+
+                    /* ,int year,
+                    String country,
+                    String color,
+                    int maxSpeed*/
+   ) {
+
+       this.brend =  defaultOrValue(brend,"Ваз");
+       this.model = defaultOrValue(model,"лада");
+       if (engineVolume <= 0){
+           this.engineVolume = 1.5;
+       }else {
+           this.engineVolume = engineVolume;
+       }
+      /*  this.year = year;
+        this.country = defaultOrValue(country,"Россия");
+        this.color = defaultOrValue(color,"Белый");
+        if (maxSpeed<=0){
+            this.maxSpeed = 100;
+        }else {
+            this.maxSpeed = maxSpeed;
+        }*/
+
+
+   }
+    public String defaultOrValue(String value, String defaultValue){
+        if (value == null || value.isBlank()){
+            return defaultValue;
+        }else {
+            return value;
+        }
+    }
+
+    public void addDriver(Driver drivers){
+       this.drivers.addAll(Arrays.asList(drivers));
+    }
+
+    public void addMehanic(Mehanic<?>... mehanics){
+       this.mehanics.addAll(Arrays.asList(mehanics));
+    }
+
+    public void addSponsor(Sponsor... sponsors){
+       this.sponsors.addAll(Arrays.asList(sponsors));
+    }
+
+
+
 /*
     public void setColor(String color) {
         if (color != null && !color.isBlank() && !color.isEmpty()) {
@@ -69,39 +135,30 @@ public abstract class Transport {
        }
     }
 */
-    public Transport(String brend, String model, double engineVolume
-           // ,int year, String country, String color, int maxSpeed
-    ) {
-        this.brend =  defaultOrValue(brend,"Ваз");
-        this.model = defaultOrValue(model,"лада");
 
-      /*  this.year = year;
-        this.country = defaultOrValue(country,"Россия");
-        this.color = defaultOrValue(color,"Белый");
-        if (maxSpeed<=0){
-            this.maxSpeed = 100;
-        }else {
-            this.maxSpeed = maxSpeed;
-        }*/
+    public abstract void refill();
 
-        if (engineVolume <= 0){
-            this.engineVolume = 1.5;
-        }else {
-            this.engineVolume = engineVolume;
-        }
-
-    }
-   // public abstract void refill();
-
-    public String defaultOrValue(String value, String defaultValue){
-        if (value == null || value.isBlank()){
-            return defaultValue;
-        }else {
-            return value;
-        }
-    }
 
     public abstract void startMoved();
 
     public abstract void stopMoved();
+
+    public abstract void printType();
+
+    public abstract boolean service();
+
+    public abstract void repair();
+
+    public List<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public Set<Mehanic<?>> getMehanics() {
+        return mehanics;
+    }
+
+    public Set<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
 }
