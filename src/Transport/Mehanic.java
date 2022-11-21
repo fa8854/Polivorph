@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.Objects;
+
 public class Mehanic <T extends Transport> {
     private final String name;
     private final String surname;
@@ -29,5 +31,18 @@ public class Mehanic <T extends Transport> {
 
     public void repair(T t) {
         t.repair();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Mehanic<?> mehanic = (Mehanic<?>) o;
+        return Objects.equals(name, mehanic.name) && Objects.equals(surname, mehanic.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname);
     }
 }

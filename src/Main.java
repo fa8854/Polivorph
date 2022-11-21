@@ -19,6 +19,11 @@ import java.util.List;
 
 
 public class Main {
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
     public static void main(String[] args) {
       /*
         Human Maksim = new Human(1998, "", "Минск","бренд-менеджером");
@@ -115,22 +120,23 @@ public class Main {
 
 
 
- Car car1= new Car("Vaz","2103",1.6, TypeOfByde.SEDAN);
- car1.addDriver(new DriverB("Ivan","23",23, car1));
- car1.addMehanic(petrovich);
- car1.addSponsor(mishlen, minvoda);
-       Car car2= new Car("Vaz","2110",1.5,TypeOfByde.SEDAN);
+        Car car1= new Car("Vaz","2103",1.6, TypeOfByde.SEDAN);
+        car1.addDriver(new DriverB("Ivan","23",23, car1));
+        car1.addMehanic(petrovich);
+        car1.addSponsor(mishlen, minvoda);
+        Car car2= new Car("Vaz","2110",1.5,TypeOfByde.SEDAN);
         Car car3= new Car("Vaz","2114",1.7,TypeOfByde.SEDAN);
         Car car4= new Car("Vaz","2106",1.6,TypeOfByde.SEDAN);
 
         Track track1 = new Track("Kamaz","Elefant",3.7,TypeOfTrack.N2);
-     Driver nikolai = new DriverC("Nikolae Nikolai",4,track1);
-     track1.addDriver(nikolai);
-     track1.addMehanic(lenia);
-     track1.addSponsor(domru);
+        Driver nikolai = new DriverC("Nikolae Nikolai",4,track1);
+        track1.addDriver(nikolai);
+        track1.addMehanic(lenia);
+        track1.addSponsor(domru);
 
 
-     Track track2 = new Track("Kamaz","Giraf",2.7,TypeOfTrack.N1);
+
+        Track track2 = new Track("Kamaz","Giraf",2.7,TypeOfTrack.N1);
         Track track3 = new Track("Kamaz","Gigant",4.7,TypeOfTrack.N1);
         Track track4 = new Track("Kamaz","Marko",5.7, TypeOfTrack.N1);
 
@@ -141,19 +147,25 @@ public class Main {
         bus1.addSponsor(domru,mishlen);
 
         Bus bus2= new Bus("Автобус","Praaeon",2.4, TypeOfBus.EXTRA_SMALL);
-        Bus bus3= new Bus("Автобус","Praacon",2.4, TypeOfBus.EXTRA_SMALL);
+        Bus bus3= new Bus("Автобус","Praaeon",2.4, TypeOfBus.EXTRA_SMALL);
         Bus bus4= new Bus("Автобус","Praqon",2.4, TypeOfBus.EXTRA_SMALL);
 
 
-        List<Transport> transports = List.of(car1,
-                                              track1,
-                                                bus1);
+        List<Transport> transports = List.of(car1,track1,bus1);
+
+
 
 
         printInfo(car1);
         ServiceStation serviceStation = new ServiceStation();
         serviceStation.addCar(car1);
         serviceStation.service();
+
+
+
+
+
+
 
      }
 
@@ -171,6 +183,8 @@ public class Main {
          for (Mehanic mehanic: transport.getMehanics()){
              System.out.println(mehanic.getName());
          }
+
+
      }
 
      private static void service(Transport... transports){
@@ -188,6 +202,8 @@ public class Main {
         }catch (RuntimeException e){
             System.out.println(e.getMessage());
         }
+
+
      }
 
 

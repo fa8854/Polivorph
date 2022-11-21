@@ -66,4 +66,14 @@ public abstract class Pet {
             this.birthYear = LocalDate.now().getYear() - Math.abs(age);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthYear=" + birthYear +
+                '}';
+    }
 }
