@@ -2,7 +2,10 @@ package Animals;
 
 import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public final class Cat extends Pet {
     private static int count;
@@ -14,7 +17,10 @@ public final class Cat extends Pet {
         private String country;
         private String hairType;
 
+
+
         public Breed(String name, String country, String hairType) {
+
             this.name = name;
             this.country = country;
             this.hairType = hairType;
@@ -55,7 +61,9 @@ public final class Cat extends Pet {
         }
     }
 
-    private Cat[] friends;
+    private List<Pet> friends;
+
+ //   private ArrayList<Pet> friends;
 
     private Breed breed;
 
@@ -70,22 +78,15 @@ public final class Cat extends Pet {
 
     public Cat(String name, int age) {
         super(name, age);
-        friends = new Cat[0];
+        friends = new LinkedList<>();
          count ++;
 
     }
 
-        public Cat[] getFriends(){
-        if (friends == null){
-            friends = new Cat[0];
-        }
+    public List<Pet> getFriends() {
         return friends;
-        }
+    }
 
-        public void addFriend(Cat friend){
-        this.friends = Arrays.copyOf(getFriends(),getFriends().length + 1);
-        this.friends[this.friends.length - 1] = friend;
-        }
 
         public Breed getBreed(){
         return breed;
